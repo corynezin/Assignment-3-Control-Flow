@@ -1,17 +1,19 @@
 build:
-	gcc variables/variables.c -o variables.out || true
-	gcc relations/relations.c -o relations.out || true
-	gcc factorial/factorial.c -o factorial.out || true
-	gcc temperature/temperature.c -o temperature.out || true
-	gcc quadratic/quadratic.c -o quadratic.out -lm || true
-	gcc upper/upper.c -o upper.out || true
-	gcc binary/binary.c -o binary.out || true
+	gcc uparrow/uparrow.c -o uparrow.out || true
+	gcc collatz/collatz.c -o collatz.out || true
+	gcc complex/complex.c -o complex.out || true
+	gcc median/median.c -o median.out || true
+	gcc pythagorean/pythagorean.c -o pythagorean.out || true
+
+	cd mandelbrot && make && cd ..
 
 run: build
-	./variables.out
-	./relations.out
-	./factorial.out
-	./temperature.out
-	./quadratic.out
-	./upper.out
-	./binary.out
+	./uparrow.out
+	./collatz.out
+	./complex.out
+	./median.out
+	./pythagorean.out
+	cd mandelbrot && make test && cd ..
+
+clean:
+	rm *.out
